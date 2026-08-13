@@ -1,0 +1,39 @@
+@import './base.css';
+
+#app {
+  max-width: min(1760px, 95vw);
+  margin: 0 auto;
+  padding: 84px 2rem 2rem;
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: var(--holo-1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: rgba(56, 189, 248, 0.15);
+  }
+}
+
+/* #app에 자식이 하나뿐인데 2단 그리드가 적용되어 전체화면(1024px 이상)에서
+   폭이 절반으로 줄어드는 문제가 있어 주석 처리함 */
+/* @media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+} */

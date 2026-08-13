@@ -1,0 +1,189 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: #030710;
+  --color-background-soft: #060e1b;
+  --color-background-mute: #0a1524;
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: #d7f1ff;
+  --color-text: #a9d3ec;
+
+  --section-gap: 160px;
+}
+
+/* 날씨 정보 HUD 톤앤매너 디자인 토큰 (딥 네이비 + 시안 글로우) */
+:root {
+  --metal-50: #050b16;
+  --metal-100: #0a1524;
+  --metal-200: rgba(56, 189, 248, 0.22);
+  --metal-300: rgba(56, 189, 248, 0.5);
+  --metal-400: #4fc3f7;
+  --metal-500: #5f87a3;
+  --metal-600: #82aecb;
+  --metal-700: #a9d3ec;
+  --metal-800: #d7f1ff;
+  --metal-900: #f2fbff;
+
+  --holo-1: #38bdf8;
+  --holo-2: #22d3ee;
+  --holo-3: #67e8f9;
+  --holo-4: #38bdf8;
+  --holo-5: #0ea5e9;
+  --holo-gradient: linear-gradient(115deg, var(--holo-1), var(--holo-2), var(--holo-3), var(--holo-4), var(--holo-5));
+
+  --font-mono: ui-monospace, 'SF Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-card: 0 0 0 1px rgba(56, 189, 248, 0.07), 0 10px 30px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 0 0 1px rgba(56, 189, 248, 0.18), 0 0 26px rgba(34, 211, 238, 0.18), 0 16px 40px rgba(0, 0, 0, 0.6);
+
+  /* HUD 글래스 패널 전용 토큰 */
+  --hud-panel-bg: rgba(6, 15, 28, 0.6);
+  --hud-panel-bg-strong: rgba(6, 15, 28, 0.85);
+  --hud-glow-text: 0 0 14px rgba(56, 189, 248, 0.45);
+  --hud-cyan: #22d3ee;
+  --hud-amber: #fb923c;
+}
+
+/* 라이트 모드 고정을 위해 다크 모드 미디어쿼리 비활성화
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+/* 모바일에서 개별 요소의 고정 min-width 등으로 콘텐츠가 화면보다 넓어지더라도
+   가로 스크롤 자체는 생기지 않도록 하는 안전장치 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse 1000px 600px at 12% -10%, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0) 60%),
+    radial-gradient(ellipse 900px 560px at 105% 10%, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0) 60%),
+    radial-gradient(ellipse 700px 500px at 50% 110%, rgba(34, 211, 238, 0.07) 0%, rgba(34, 211, 238, 0) 60%),
+    repeating-linear-gradient(0deg, rgba(56, 189, 248, 0.035) 0px, rgba(56, 189, 248, 0.035) 1px, transparent 1px, transparent 42px),
+    repeating-linear-gradient(90deg, rgba(56, 189, 248, 0.035) 0px, rgba(56, 189, 248, 0.035) 1px, transparent 1px, transparent 42px), linear-gradient(160deg, #04080f 0%, #050d1a 45%, #030710 100%);
+  background-attachment: fixed;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: var(--metal-900);
+}
+
+* {
+  scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.7);
+}
+
+/* 브라우저 창 전체(뷰포트) 스크롤바는 일부 브라우저에서 *가 아니라 html에 직접 걸어야
+   적용된다. 트랙은 완전 투명 대신 배경색과 같은 다크 네이비로 명시해 흰 기본 스크롤바가
+   비쳐 보이지 않게 한다 */
+html {
+  scrollbar-color: rgba(56, 189, 248, 0.35) #05101f;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #05101f;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6);
+}
